@@ -1,16 +1,19 @@
 #include <iostream>
 
 using namespace std;
+
 void maxminarr(int & maximo,int & minimo,int arr[],int inic,int fin);
 
 int main()
 {
+    //initializing the array
     int arr[] = {3,7,6,4,2,5};
-    int tama = 6;
+    int size_ = 6;
     int maximo, minimo;
 
-    //call the function
-    maxminarr(maximo, minimo, arr, 0, tama-1);
+    
+    //this function calculate the max and min of an array with the technique DyC
+    maxminarr(maximo, minimo, arr, 0, size_-1);
 
     cout << maximo << endl;
     cout << minimo << endl;
@@ -29,7 +32,7 @@ void maxminarr(int & maximo,int & minimo,int arr[],int inic,int fin)
         maxminarr(maximoizq, minimoizq, arr, inic, mitad);
         maxminarr(maximoder, minimoder, arr, mitad + 1, fin);
 
-        //combina
+        //combines
         if(maximoizq > maximoder)
             maximo = maximoizq;
         else
@@ -44,7 +47,7 @@ void maxminarr(int & maximo,int & minimo,int arr[],int inic,int fin)
     }
     else
     {
-        //conquista
+        //conquest
         maximo = arr[inic];
         minimo = arr[inic];
     }
